@@ -1,0 +1,16 @@
+{
+  "routes": [
+    {
+      "src": "/presensi",
+      "dest": "/presensi/index.html"
+    },
+    {
+      "src": "/presensi/*",
+      "dest": "/presensi/:splat"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1.html"
+    }
+  ]
+}
