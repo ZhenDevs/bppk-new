@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Event Syohita</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&display=swap">
+    <style>
+        @import "compass/css3";
+
+        /* ===================== FILE INPUT ===================== */
+        .file-area {
+            width: 100%;
+            position: relative;
+            
+            input[type=file] {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                opacity: 0;
+                cursor: pointer;
+            }
+            
+            .file-dummy {
+                width: 100%;
+                padding: 30px;
+                background: rgba(255,255,255,0.2);
+                border: 2px dashed rgba(255,255,255,0.2);
+                text-align: center;
+                transition: background 0.3s ease-in-out;
+                
+                .success {
+                    display: none;
+                }
+            }
+            
+            &:hover .file-dummy {
+                background: rgba(255,255,255,0.1);
+            }
+            
+            input[type=file]:focus + .file-dummy {
+                outline: 2px solid rgba(255,255,255,0.5);
+                outline: -webkit-focus-ring-color auto 5px;
+            }
+            
+            input[type=file]:valid + .file-dummy {
+                border-color: rgba(0,255,0,0.4);
+                background-color: rgba(0,255,0,0.3);
+                
+                .success {
+                    display: inline-block;
+                }
+                .default {
+                    display: none;
+                }
+            }
+        }
+        
+        /* ===================== BASIC STYLING ===================== */
+        * {
+            box-sizing: border-box;
+            font-family: 'Lato', sans-serif;
+        }
+        
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-weight: 300;
+            height: 100%;
+            background: #053777;
+            color: #fff;
+            font-size: 16px;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #053777 0%, #00659b 100%);
+        }
+        
+        h1 {
+            text-align: center;
+            margin: 50px auto;
+            font-weight: 100;
+        }
+
+        
+        label {
+            font-weight: 500;
+            display: block;
+            margin: 4px 0;
+            text-transform: uppercase;
+            font-size: 13px;
+            overflow: hidden;
+            
+            span {
+                float: right;
+                text-transform: none;
+                font-weight: 200;
+                line-height: 1em;
+                font-style: italic;
+                opacity: 0.8;
+            }
+        }
+        
+        .form-control {
+            display: block;
+            padding: 8px 16px;
+            width: 100%;
+            font-size: 16px;
+            background-color: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff;
+            font-weight: 200;
+            
+            &:focus {
+                outline: 2px solid rgba(255,255,255,0.5);
+                outline: -webkit-focus-ring-color auto 5px;
+            }
+        }
+        
+        button {
+            padding: 8px 30px;
+            background: rgba(255,255,255,0.8);
+            color: #053777;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 11px;
+            border: 0;
+            text-shadow: 0 1px 2px #fff;
+            cursor: pointer;
+        }
+
+        .button-loading {
+            background-color: #ccc;
+            color: #000;
+        }
+
+        .button-loading:after {
+            content: 'Loading...';
+        }
+        
+        .form-group {
+            max-width: 500px;
+            margin: auto;
+            margin: auto;
+     margin-bottom: 30px;
+}
+
+.back-to-article {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 12px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  text-decoration: none;
+  display: inline-block;
+  background: rgba(0,0,0,0.6);
+  padding: 10px 18px;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.6;
+  
+  &:hover {
+    opacity: 1;
+    background: rgba(0,0,0,0.8);
+  }
+}
+
+/* Aturan CSS yang sudah ada */
+
+/* Media Queries untuk Responsivitas */
+@media (max-width: 768px) {
+    /* Gaya untuk tablet dan ponsel */
+    .form-group {
+        width: 90%; /* Lebih kecil dari default */
+        margin: 20px auto; /* Margin lebih besar untuk tampilan yang lebih baik */
+    }
+
+    h1 {
+        font-size: 24px; /* Ukuran font lebih kecil */
+        margin: 20px auto; /* Margin atas dan bawah yang lebih kecil */
+    }
+
+    .form-control, input[type="file"] {
+        padding: 12px; /* Padding lebih besar untuk mudah diklik */
+    }
+
+    button {
+        width: 100%; /* Tombol lebar penuh */
+        padding: 12px; /* Padding lebih besar */
+    }
+
+    .file-dummy {
+        padding: 20px; /* Padding lebih kecil */
+    }
+}
+
+    body {
+        margin: auto;
+    }
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Gaya untuk layar laptop kecil */
+    .form-group {
+        width: 80%; /* Sedikit lebih lebar dari ponsel */
+    }
+
+    h1 {
+        font-size: 28px; /* Ukuran font sedikit lebih besar */
+    }
+}
+
+@media (min-width: 1025px) {
+    /* Gaya untuk layar laptop besar dan desktop */
+    .form-group {
+        width: 50%; /* Lebar optimal untuk pembacaan */
+    }
+
+    h1 {
+        font-size: 32px; /* Ukuran font yang cocok untuk layar besar */
+    }
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+<script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyAFMXULFS8e_n3vELUWP5hQJeNMttV-60",
+        authDomain: "syohita-5d006.firebaseapp.com",
+        projectId: "syohita-5d006",
+        storageBucket: "syohita-5d006.appspot.com",
+        messagingSenderId: "503719285726",
+        appId: "1:503719285726:web:7a06737531d7dad760034f",
+        measurementId: "G-92EN102N9C"
+    };
+    firebase.initializeApp(firebaseConfig);
+</script>
+</head>
+<body>
+    <form action method="post" onsubmit="event.preventDefault(); uploadFile();">
+  
+        <h1><strong>Pengumpulan Karya</strong></h1>
+        <h1 style="color: red;"><strong> 13 - 19 Mei</strong></h1>
+        
+        <div class="form-group">
+          <label for="title">Nama Lengkap <span></span></label>
+          <input type="text" name="title" id="title" class="form-control"/>
+        </div>
+        <div class="form-group">
+          <label for="caption">Asal Sekolah <span></span></label>
+          <input type="text" name="caption" id="caption" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="bidang">Bidang Lomba <span></span></label>
+            <input type="text" name="bidang" id="bidang" class="form-control"/>
+          </div>
+        
+        <div class="form-group file-area">
+              <label for="images">Masukkan file karya</label>
+          <input type="file" name="images" id="images" required="required" multiple="multiple"/>
+          <div class="file-dummy">
+            <div class="success">Great, your files are selected. Keep on.</div>
+            <div class="default">Please select some files</div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <button type="submit">Upload</button>
+        </div>
+        
+      </form>
+      
+      <link href='https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700' rel='stylesheet' type='text/css'>
+      <script>
+        function uploadFile() {
+            var uploadButton = document.querySelector('button[type="submit"]');
+            uploadButton.classList.add('button-loading');
+            uploadButton.disabled = true;
+            uploadButton.textContent = 'Loading...'; // Set the button text to Loading...
+    
+            var files = document.getElementById('images').files;
+            var title = document.getElementById('title').value;
+            var caption = document.getElementById('caption').value;
+            var bidang = document.getElementById('bidang').value;
+    
+            if (files.length > 0) {
+                Array.from(files).forEach(file => {
+                    var modifiedName = title + '-' + caption + '-' + bidang + '-' + file.name;
+                    var storageRef = firebase.storage().ref('pengumpulan/' + modifiedName);
+                    var uploadTask = storageRef.put(file);
+    
+                    uploadTask.on('state_changed', function(snapshot) {
+                        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                        console.log('Upload is ' + progress + '% done for ' + file.name);
+                    }, function(error) {
+                        console.log("Error: ", error);
+                    }, function() {
+                        uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                            console.log('File available at', downloadURL);
+                        });
+                    });
+                });
+    
+                uploadButton.classList.remove('button-loading');
+                uploadButton.disabled = false;
+                uploadButton.textContent = 'Upload images'; // Reset button text to original
+                Swal.fire({
+                    title: "Karya berhasil dikirim!",
+                    text: "Silahkan masuk ke grup whatsapp berikut, untuk info lebih lanjut",
+                    footer: '<a href="https://chat.whatsapp.com/CCkE8JSVgXJ9RQp2MJ4Sg2">klik ini untuk masuk ke grup whatsapp</a>'
+                });
+            } else {
+                console.log("No files selected.");
+                uploadButton.classList.remove('button-loading');
+                uploadButton.disabled = false;
+                uploadButton.textContent = 'Upload images'; // Reset button text to original
+            }
+        }
+    </script>
+</body>
+</html>

@@ -29,6 +29,7 @@ transition: transform 0.3s;
 transform: scale(0.95);
 }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
     <script>
@@ -140,12 +141,13 @@ transform: scale(0.95);
                 alert('Terjadi kesalahan: ' + error.message);
             } finally {
                 // Show success notification
-                alert('Pendaftaran berhasil!');
+                Swal.fire("Berhasil registrasi");
                 // btnDaftar.innerHTML = 'Daftar';
                 form.reset();
                 const btnDaftar = document.querySelector('button[type="submit"]');
                 btnDaftar.innerHTML = 'Daftar';
                 btnDaftar.disabled = true;
+                window.location.href = '/pengumpulan'
             }
         });
     </script>
