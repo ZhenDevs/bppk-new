@@ -36,6 +36,46 @@ body {
         color: #333;
       }
 
+      .carousel-item::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 70%;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  /* background: rgba(0, 0, 0, 0.5); Overlay hitam dengan transparansi */
+  z-index: 2;
+}
+
+.carousel-caption {
+  position: relative;
+  z-index: 3; /* Pastikan teks berada di atas overlay */
+}
+
+@media only screen and (min-width: 900px) {
+  .carousel-item .amang img {
+    border-radius: 20px !important;
+    overflow: hidden;
+    width: auto ;
+    height: 600px !important;
+}
+  }
+
+@media only screen and (max-width: 600px) {
+.amang img{
+  border-radius: 20px;
+  width: auto;
+  height: 219px !important;
+  overflow: hidden;
+}
+}
+
+.carousel-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
       h1,
       h2,
       h3 {
@@ -254,10 +294,68 @@ footer p {
                 <img src="/foto/logo.png" class="img-fluid" alt="Logo Bppk" height="200px" width="200px">
               </div>
               <br>
-              <p>BPPK Stembayo (Berbahasa, Penerapan Pengetahuan dan Kesastraan - Sekolah Teknologi Menengah Negeri Pembangunan Yogyakarta) merupakan salah satu Seksi Bidang yang berada di bawah kepengurusan OSIS SMK Negeri 2 Depok Sleman.<br><br>Terdapat 4 Sub Seksi Bidang dibawah BPPK Stembayo, yaitu:<br><br>1. [SDFC] Stembayo Debating Forum Club (Debat Bahasa Inggris)<br>2. [Karista] Karya Ilmiah Siswa Stembayo<br>3. [SC] STEZINE's Crew (Jurnalistik)<br>4. [SNB] Stembayo Nihongo Benkyoukai (Bahasa Jepang)<br><br>BPPK Stembayo lahir pada tanggal 27 September 2006 dengan nama "Berorganisasi ,Pendidikan Politik dan Kepemimpinan." Berdasarkan AD/ART PK & OSIS Amandemen 2014, kepanjangan BPPK berubah menjadi "Berbahasa, Penerapan Pengetahuan dan Kesastraan." Perubahan kepanjangan BPPK digagas oleh Bendahara I PK serta Koordinator dan Bendahara I BPPK periode kepengurusan 2013/2014 (Generasi Ke-8 BPPK). Dasar dari perubahan kepanjangan ini adalah untuk mensinkronkan antara nama dengan bidang yang diampu oleh BPPK. Kepanjangan ini mulai berlaku sejak periode kepengurusan 2014/2015 (Generasi Ke-9 BPPK) sampai dengan sekarang.<br><br>Semboyan dari BPPK Stembayo adalah "Never Ending Spirit" :D
+              <p>BPPK Stembayo (Berbahasa, Penerapan Pengetahuan dan Kesastraan - Sekolah Teknologi Menengah Negeri Pembangunan Yogyakarta) merupakan salah satu Seksi Bidang yang berada di bawah kepengurusan OSIS SMK Negeri 2 Depok Sleman.<br><br>Terdapat 4 Sub Seksi Bidang dibawah BPPK Stembayo, yaitu:<br><br>1. [SDFC] Stembayo Debating Forum Club (Debat Bahasa Inggris)<br>2. [Karista] Karya Ilmiah Siswa Stembayo<br>3. [SC] STEZINE's Crew (Jurnalistik)<br>4. [SNB] Stembayo Nihongo Benkyoukai (Bahasa Jepang)<br><br>BPPK Stembayo lahir pada tanggal 27 September 2006 dengan nama "Berorganisasi ,Pendidikan Politik dan Kepemimpinan." Berdasarkan AD/ART PK & OSIS Amandemen 2014, kepanjangan BPPK berubah menjadi "Berbahasa, Penerapan Pengetahuan dan Kesastraan." Perubahan kepanjangan BPPK digagas oleh Bendahara I PK serta Koordinator dan Bendahara I BPPK periode kepengurusan 2013/2014 (Generasi Ke-8 BPPK). Dasar dari perubahan kepanjangan ini adalah untuk mensinkronkan antara nama dengan bidang yang diampu oleh BPPK. Kepanjangan ini mulai berlaku sejak periode kepengurusan 2014/2015 (Generasi Ke-9 BPPK) sampai dengan sekarang.<br><br>Semboyan dari BPPK Stembayo adalah "Never Ending Spirit" :D<br><br>
 </p>
-              
-              </p>
+<p style="text-align: center;"><--Jadwal Ekstrakulikuler--></p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Hari</th>
+      <th>Kegiatan</th>
+      <th>Waktu</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Selasa</td>
+      <td>SNB</td>
+      <td>15.30 - 17.00</td>
+    </tr>
+    <tr>
+      <td>Rabu</td>
+      <td>SNB, SDF, JURNALISTIK</td>
+      <td>15.30 - 17.00</td>
+    </tr>
+    <tr>
+      <td>Kamis</td>
+      <td>Karista</td>
+      <td>15.30 - 17.00</td>
+    </tr>
+  </tbody>
+</table>            
+<p style="text-align: center;">*Dokumentasi kegiatan ekstrakurikuler</p>
+  <div id="carouselExample" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="amang">
+        <img src="https://i.ibb.co.com/R0Dh6gs/Whats-App-Image-2024-07-15-at-18-11-21.jpg" class="d-block w-100" alt="Kegiatan 1">
+        </div>
+        <div class="carousel-caption">
+          <!-- <h5>Nama Ekstrakurikuler 1</h5>
+          <p style="text-align: center;">Deskripsi singkat tentang ekstrakurikuler 1.</p> -->
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="amang">
+        <img src="https://i.ibb.co.com/m0CKkT5/Whats-App-Image-2024-07-15-at-18-11-22.jpg" class="d-block w-100" alt="Kegiatan 2">
+      </div>
+      </div>
+      <div class="carousel-item">
+        <div class="amang">
+        <img src="https://i.ibb.co.com/Z1CrQp0/sdf.jpg" class="d-block w-100" alt="Kegiatan 3">
+      </div>
+      </div>
+    </div>
+    <!-- Controls -->
+    <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
             </div>
           </div>
         </div>
